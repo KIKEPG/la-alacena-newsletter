@@ -89,13 +89,48 @@
     }
     .btn-secondary:hover { box-shadow: 2px 2px 0 var(--negro); }
 
-    .btn-naranja {
-      background: var(--naranja);
-      color: var(--blanco);
-      border: 2px solid var(--negro);
-      box-shadow: 4px 4px 0 var(--negro);
-    }
-    .btn-naranja:hover { box-shadow: 2px 2px 0 var(--negro); }
+.btn-naranja {
+  background: var(--naranja);
+  color: var(--blanco);
+  border: 2px solid var(--negro);
+  box-shadow: 4px 4px 0 var(--negro);
+  white-space: nowrap;
+}
+
+.btn-naranja:hover {
+  box-shadow: 2px 2px 0 var(--negro);
+}
+
+/* Responsive tablet */
+@media (max-width: 768px) {
+  .btn-naranja {
+    font-size: 14px;
+    padding: 14px 22px;
+    box-shadow: 3px 3px 0 var(--negro);
+    letter-spacing: 2px;
+  }
+}
+
+/* Responsive móvil */
+@media (max-width: 480px) {
+  .btn-naranja {
+    font-size: 12px;
+    padding: 10px 14px;
+    box-shadow: 2px 2px 0 var(--negro);
+    letter-spacing: 1.5px;
+    max-width: 150px;
+    text-align: center;
+  }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 360px) {
+  .btn-naranja {
+    font-size: 11px;
+    padding: 8px 10px;
+    max-width: 130px;
+  }
+}
 
     .btn-outline-white {
       background: transparent;
