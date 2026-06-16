@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Únete a la Comunidad · La Alacena — Newsletter</title>
+  <meta name="description" content="Apúntate a la newsletter de La Alacena: novedades, catas, historias de productores y un 10% de descuento en tu primer pedido.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,800&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+  <style>
+
+    /* ═══════════════════════════════════════
+       VARIABLES & RESET — heredado de index.html
+    ═══════════════════════════════════════ */
+    :root {
+      --crema:     #F5F0E8;
+      --crema-sec: #EDE8DC;
+      --negro:     #1A1A1A;
+      --verde:     #2D3D2E;
+      --granate:   #7A1F2E;
+      --naranja:   #DC7A11;
+      --btn-dark:  #1A1A1A;
+      --blanco:    #FFFFFF;
+      --f-main:    'Barlow Condensed', sans-serif;
+      --f-accent:  'Playfair Display', serif;
+      --sec-borde: 3px solid #1A1A1A;
+      --card-borde: 2px solid #1A1A1A;
+      --max-w:     1280px;
+      --g:         48px;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      background: var(--crema);
+      color: var(--negro);
+      font-family: var(--f-main);
+      font-weight: 400;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    img  { display: block; max-width: 100%; }
+    a    { color: inherit; text-decoration: none; }
+    ul   { list-style: none; }
+
+    .wrap {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--g);
+    }
+
+    /* ═══════════════════════════════════════
+       BOTONES — sombra desplazada retro
+    ═══════════════════════════════════════ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 13px 26px;
+      font-family: var(--f-main);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 0;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .btn:hover { transform: translate(2px, 2px); }
+
+    .btn-primary {
+      background: #dc7a12;
+      color: var(--blanco);
+      border: 2px solid var(--negro);
+      box-shadow: 4px 4px 0 var(--negro);
+    }
+    .btn-primary:hover { box-shadow: 2px 2px 0 var(--negro); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--negro);
+      border: 2px solid var(--negro);
+      box-shadow: 4px 4px 0 var(--negro);
+    }
+    .btn-secondary:hover { box-shadow: 2px 2px 0 var(--negro); }
+
+    .btn-naranja {
+      background: var(--naranja);
+      color: var(--blanco);
+      border: 2px solid var(--negro);
+      box-shadow: 4px 4px 0 var(--negro);
+    }
+    .btn-naranja:hover { box-shadow: 2px 2px 0 var(--negro); }
+
+    .btn-outline-white {
+      background: transparent;
+      color: var(--blanco);
+      border: 2px solid var(--blanco);
+      box-shadow: 4px 4px 0 var(--blanco);
+    }
+    .btn-outline-white:hover { box-shadow: 2px 2px 0 var(--blanco); }
+
+    /* ═══════════════════════════════════════
+       SECCIÓN: HEADER
+    ═══════════════════════════════════════ */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: var(--crema);
+      border-bottom: var(--sec-borde);
+      height: 72px;
+      display: flex;
+      align-items: center;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .main-nav { margin-left: 64px; }
+    .main-nav ul { display: flex; gap: 48px; align-items: center; }
+
+    .header-logo { margin-left: -14px; }
+
+    .main-nav ul li a {
+      font-family: var(--f-main);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--negro);
+      padding-bottom: 2px;
+      transition: color 0.15s;
+    }
+    .main-nav ul li a:hover      { color: var(--naranja); }
+    .main-nav ul li.active a     { border-bottom: 2px solid var(--naranja); }
+
+    .header-right { display: flex; align-items: center; gap: 14px; margin-left: 36px; }
+
+    .hdr-icon {
+      font-size: 18px;
+      color: var(--negro);
+      cursor: pointer;
+      position: relative;
+      transition: color 0.15s;
+      background: none;
+      border: none;
+    }
+    .hdr-icon:hover { color: var(--naranja); }
+
+    .cart-badge {
+      position: absolute;
+      top: -8px;
+      right: -10px;
+      background: var(--naranja);
+      color: var(--blanco);
+      font-family: var(--f-main);
+      font-size: 9px;
+      font-weight: 700;
+      width: 16px;
+      height: 16px;
+      border-radius: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--negro);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+      padding: 6px;
+      border: 2px solid var(--negro);
+      background: transparent;
+    }
+    .hamburger span { display: block; width: 20px; height: 2px; background: var(--negro); }
+
+    /* ═══════════════════════════════════════
+       SECCIÓN: HERO NEWSLETTER
+    ═══════════════════════════════════════ */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 92vh;
+      border-bottom: var(--sec-borde);
+    }
+
+    .hero-left {
+      background: var(--crema);
+      padding: 80px 60px 80px var(--g);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 28px;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 12px;
+      border: 1px solid var(--negro);
+      font-family: var(--f-main);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--naranja);
+      width: fit-content;
+    }
+
+    .hero-h1 {
+      font-family: var(--f-main);
+      font-size: clamp(60px, 7.5vw, 96px);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 0.9;
+      color: var(--negro);
+    }
+
+    .hero-h1 .accent {
+      font-family: var(--f-accent);
+      font-style: italic;
+      font-weight: 700;
+      text-transform: none;
+      color: var(--granate);
+    }
+
+    .hero-desc {
+      font-family: var(--f-main);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.65;
+      max-width: 440px;
+      color: #333;
+    }
+
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .hero-right {
+      background: #D4C9B8;
+      border-left: var(--sec-borde);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      min-height: 92vh;
+    }
+
+    .hero-right img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-right-txt {
+      font-family: var(--f-main);
+      font-size: 14px;
+      font-weight: 400;
+      color: #8a7d6e;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-pills {
+      position: absolute;
+      bottom: 32px;
+      left: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 2;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 12px;
+      background: #dc7a12;
+      border: 2px solid var(--negro);
+      font-family: var(--f-main);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #FFFFFF;
+      width: fit-content;
+    }
+
+    /* ═══════════════════════════════════════
+       SECCIÓN: MARQUEE
+    ═══════════════════════════════════════ */
+    .marquee-bar {
+      background: #588c73;
+      border-bottom: var(--sec-borde);
+      height: 48px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: scrollLeft 25s linear infinite;
+    }
+
+    .marquee-item {
+      font-family: var(--f-main);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--blanco);
+      white-space: nowrap;
+      padding-right: 60px;
+    }
+
+    @keyframes scrollLeft {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ═══════════════════════════════════════
+       BLOQUE TITULAR DE SECCIÓN (compartido)
+    ═══════════════════════════════════════ */
+    .sec-title-xl {
+      font-family: var(--f-main);
+      font-size: clamp(40px, 6vw, 64px);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 0.9;
+      color: var(--negro);
+      margin-bottom: 40px;
+    }
+
+    .sec-supra {
+      display: block;
+      font-family: var(--f-main);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--naranja);
+      margin-bottom: 12px;
+    }
+
+    /* ═══════════════════════════════════════
+       SECCIÓN: BENEFICIOS (cards-3)
+    ═══════════════════════════════════════ */
+    .beneficios {
+      background: var(--crema);
+      border-bottom: var(--sec-borde);
+      padding: 80px 0;
+    }
+
+    .cards-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--blanco);
+      border: var(--card-borde);
+      padding: 28px;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: var(--naranja); }
+
+    .card-num {
+      font-family: var(--f-accent);
+      font-style: italic;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--naranja);
+      margin-bottom: 10px;
+    }
+
+    .card-title {
+      font-family: var(--f-main);
+      font-size: 20px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+      color: var(--negro);
+      margin-bottom: 14px;
+      line-height: 1.1;
+    }
+
+    .card-divider {
+      height: 2px;
+      background: var(--negro);
+      margin-bottom: 14px;
+    }
+
+    .card-text {
+      font-family: var(--f-main);
+      font-size: 15px;
+      font-weight: 400;
+      color: #444;
+      line-height: 1.65;
+    }
+
+    /* ═══════════════════════════════════════
+       SECCIÓN: COMUNIDAD EN CIFRAS (granate)
+    ═══════════════════════════════════════ */
+    .vision {
+      background: #588c73;
+      border-bottom: var(--sec-borde);
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .vision h2 {
+      font-family: var(--f-main);
+      font-size: clamp(40px, 6vw, 64px);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 0.9;
+      color: var(--blanco);
+      margin-bottom: 24px;
+    }
+
+    .vision p {
+      font-family: var(--f-main);
+      font-size: 16px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.8);
+      max-width: 700px;
+      margin: 0 auto 60px;
+      line-height: 1.65;
+    }
+
+    .vision-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .vision-stat {
+      padding: 36px 20px;
+      border-right: 1px solid rgba(255,255,255,0.3);
+    }
+    .vision-stat:last-child { border-right: none; }
+
+    .vision-num {
+      display: block;
+      font-family: var(--f-main);
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 900;
+      font-style: italic;
+      color: var(--blanco);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .vision-lbl {
+      display: block;
+      font-family: var(--f-main);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* ═══════════════════════════════════════
+       SECCIÓN: TESTIMONIOS
+    ═══════════════════════════════════════ */
+    .testimonios {
+      background: var(--crema-sec);
+      border-bottom: var(--sec-borde);
+      padding: 80px 0;
+    }
+
+    .testi-card {
+      background: var(--blanco);
+      border: var(--card-borde);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: border-color 0.2s;
+    }
+    .testi-card:hover { border-color: var(--naranja); }
+
+    .testi-mark {
+      font-family: var(--f-accent);
+      font-style: italic;
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--naranja);
+      line-height: 1;
+    }
+
+    .testi-text {
+      font-family: var(--f-accent);
+      font-style: italic;
+      font-size: 17px;
+      font-weight: 700;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    .testi-divider {
+      height: 2px;
+      width: 32px;
+      background: var(--negro);
+    }
+
+    .testi-author {
+      font-family: var(--f-main);
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--negro);
+    }
+
+    .testi-role {
+      font-family: var(--f-main);
+      font-size: 13px;
+      font-weight: 400;
+      color: #777;
+    }
+
+    /* ═══════════════════════════════════════
+       SECCIÓN: NEWSLETTER (caja de suscripción)
+    ═══════════════════════════════════════ */
+    .newsletter {
+      background: #588c73;
+      border-bottom: var(--sec-borde);
+      padding: 100px var(--g);
+    }
+
+    .newsletter-grid {
+      display: grid;
+      grid-template-columns: 55fr 45fr;
+      gap: 60px;
+      align-items: start;
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    .nl-supra {
+      display: block;
+      font-family: var(--f-main);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--naranja);
+      margin-bottom: 16px;
+    }
+
+    .nl-h2 {
+      font-family: var(--f-main);
+      font-size: clamp(44px, 5.5vw, 64px);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 0.9;
+      color: var(--blanco);
+      margin-bottom: 20px;
+    }
+
+    .nl-desc {
+      font-family: var(--f-main);
+      font-size: 16px;
+      font-weight: 400;
+      color: #FFFFFF;
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+
+    .nl-benefits { display: flex; flex-direction: column; gap: 10px; }
+
+    .nl-benefit {
+      font-family: var(--f-main);
+      font-size: 14px;
+      font-weight: 400;
+      color: #FFFFFF;
+      display: flex;
+      gap: 8px;
+    }
+    .nl-benefit::before { content: '★'; color: var(--naranja); flex-shrink: 0; }
+
+    .nl-box {
+      background: #272626;
+      border: 3px solid var(--naranja);
+      box-shadow: 6px 6px 0 var(--naranja);
+      padding: 40px;
+    }
+
+    .nl-box-label {
+      display: block;
+      font-family: var(--f-main);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--naranja);
+      margin-bottom: 20px;
+    }
+
+    .nl-input {
+      width: 100%;
+      height: 52px;
+      background: var(--negro);
+      border: 2px solid var(--blanco);
+      color: var(--blanco);
+      font-family: var(--f-main);
+      font-size: 15px;
+      font-weight: 400;
+      padding: 0 16px;
+      outline: none;
+      margin-bottom: 12px;
+      border-radius: 0;
+    }
+    .nl-input::placeholder { color: #555; }
+
+    .nl-submit {
+      width: 100%;
+      height: 52px;
+      background: var(--naranja);
+      border: 2px solid var(--negro);
+      box-shadow: 4px 4px 0 rgba(220,122,17,0.6);
+      color: var(--blanco);
+      font-family: var(--f-main);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      margin-bottom: 16px;
+      border-radius: 0;
+    }
+    .nl-submit:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 rgba(220,122,17,0.6);
+    }
+
+    .nl-legal {
+      font-family: var(--f-main);
+      font-size: 12px;
+      font-weight: 400;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .nl-checkbox {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-family: var(--f-main);
+      font-size: 12px;
+      font-weight: 400;
+      color: #555;
+      cursor: pointer;
+    }
+
+    /* ═══════════════════════════════════════
+       SECCIÓN: FAQ
+    ═══════════════════════════════════════ */
+    .faq {
+      background: var(--crema);
+      border-bottom: var(--sec-borde);
+      padding: 80px 0;
+    }
+
+    /* ═══════════════════════════════════════
+       SECCIÓN: FOOTER
+    ═══════════════════════════════════════ */
+    footer {
+      background: var(--negro);
+      padding: 80px 0 40px;
+      color: var(--blanco);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-logo {
+      font-family: var(--f-main);
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--blanco);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+    .footer-logo .ast { color: var(--naranja); }
+
+    .footer-desc {
+      font-family: var(--f-main);
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.7;
+      margin-bottom: 22px;
+      max-width: 240px;
+    }
+
+    .footer-form { display: flex; margin-bottom: 12px; }
+
+    .footer-input {
+      flex: 1;
+      height: 44px;
+      padding: 0 14px;
+      background: rgba(255,255,255,0.07);
+      border: 2px solid rgba(255,255,255,0.2);
+      border-right: none;
+      color: var(--blanco);
+      font-family: var(--f-main);
+      font-size: 13px;
+      font-weight: 400;
+      outline: none;
+      border-radius: 0;
+    }
+    .footer-input::placeholder { color: rgba(255,255,255,0.3); }
+
+    .footer-submit {
+      height: 44px;
+      padding: 0 16px;
+      background: var(--naranja);
+      border: 2px solid var(--negro);
+      box-shadow: 3px 3px 0 var(--naranja);
+      color: var(--blanco);
+      font-family: var(--f-main);
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      border-radius: 0;
+    }
+    .footer-submit:hover {
+      transform: translate(1px, 1px);
+      box-shadow: 2px 2px 0 var(--naranja);
+    }
+
+    .footer-privacy {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-family: var(--f-main);
+      font-size: 11px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.3);
+      cursor: pointer;
+    }
+
+    .footer-col h4 {
+      font-family: var(--f-main);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 20px;
+    }
+
+    .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+
+    .footer-col ul li a {
+      font-family: var(--f-main);
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      transition: color 0.15s;
+    }
+    .footer-col ul li a:hover { color: var(--naranja); }
+
+    .footer-social { display: flex; gap: 10px; }
+
+    .social-btn {
+      width: 40px;
+      height: 40px;
+      border: 2px solid var(--blanco);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--f-main);
+      font-size: 12px;
+      font-weight: 900;
+      color: var(--blanco);
+      text-decoration: none;
+      cursor: pointer;
+      transition: box-shadow 0.15s ease, border-color 0.15s ease, color 0.15s;
+    }
+    .social-btn:hover {
+      box-shadow: 3px 3px 0 var(--naranja);
+      border-color: var(--naranja);
+      color: var(--naranja);
+    }
+
+    .footer-divider {
+      height: 1px;
+      background: #333;
+      margin-bottom: 28px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-bottom p {
+      font-family: var(--f-main);
+      font-size: 12px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.22);
+    }
+
+    /* ═══════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════ */
+    @media (max-width: 1100px) {
+      :root { --g: 32px; }
+      .cards-3     { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .vision-stats { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      :root { --g: 20px; }
+
+      .main-nav { display: none; margin-left: 0; }
+      .main-nav.open {
+        display: flex;
+        position: fixed;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: var(--crema);
+        border-bottom: var(--sec-borde);
+        padding: 28px var(--g);
+        z-index: 199;
+      }
+      .main-nav.open ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
+      }
+      .hamburger { display: flex; }
+      .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+      .hamburger.open span:nth-child(2) { opacity: 0; }
+      .hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-right {
+        min-height: 50vh;
+        border-left: none;
+        border-top: var(--sec-borde);
+        order: -1;
+      }
+      .hero-left { padding: 48px var(--g); }
+      .hero-h1  { font-size: 52px; }
+      .hero-btns { flex-direction: column; }
+
+      .cards-3 { grid-template-columns: 1fr; }
+
+      .newsletter-grid { grid-template-columns: 1fr; }
+      .newsletter { padding: 60px var(--g); }
+
+      .vision-stats { grid-template-columns: repeat(2, 1fr); }
+
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="wrap">
+    <div class="header-inner">
+      <a href="index.html" class="header-logo">
+        <img src="Logo-1.jpg" alt="La Alacena" style="height: 48px; width: auto;">
+      </a>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#beneficios">Beneficios</a></li>
+          <li><a href="#comunidad">Comunidad</a></li>
+          <li><a href="#testimonios">Testimonios</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-right">
+        <a href="#apuntate" class="btn btn-naranja" style="padding: 10px 18px; font-size: 12px;">Apúntate ahora</a>
+        <button class="hamburger" aria-label="Menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<!-- HERO NEWSLETTER -->
+<section class="hero" id="inicio">
+
+  <div class="hero-left">
+    <span class="hero-label">— Newsletter La Alacena —</span>
+
+    <h1 class="hero-h1">
+      NO TE PIERDAS<br>
+      <span class="accent">ni una</span> BOTELLA
+    </h1>
+
+    <p class="hero-desc">
+      Cada semana compartimos las botellas que llegan a la bodega, las historias de quienes las hacen y los planes de la casa. Sin spam, sin tecnicismos. Solo lo que de verdad merece tu atención.
+    </p>
+
+    <div class="hero-btns">
+      <a href="#apuntate" class="btn btn-primary">Apúntate ahora</a>
+      <a href="#beneficios" class="btn btn-secondary">Ver beneficios</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <img src="references/fotohome1.jpeg" alt="Comunidad La Alacena">
+    <div class="hero-pills">
+      <span class="hero-pill">Sin spam</span>
+      <span class="hero-pill">+800 suscriptores</span>
+      <span class="hero-pill">10% en tu primer pedido</span>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- MARQUEE -->
+<div class="marquee-bar" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">★ NOVEDADES CADA SEMANA ★ CATAS EN BODEGA ★ HISTORIAS DE PRODUCTORES ★ 10% DE BIENVENIDA ★ SIN SPAM ★ BAJA CUANDO QUIERAS ★ NOVEDADES CADA SEMANA ★ CATAS EN BODEGA ★ HISTORIAS DE PRODUCTORES ★ 10% DE BIENVENIDA ★ SIN SPAM ★ BAJA CUANDO QUIERAS ★</span>
+    <span class="marquee-item">★ NOVEDADES CADA SEMANA ★ CATAS EN BODEGA ★ HISTORIAS DE PRODUCTORES ★ 10% DE BIENVENIDA ★ SIN SPAM ★ BAJA CUANDO QUIERAS ★ NOVEDADES CADA SEMANA ★ CATAS EN BODEGA ★ HISTORIAS DE PRODUCTORES ★ 10% DE BIENVENIDA ★ SIN SPAM ★ BAJA CUANDO QUIERAS ★</span>
+  </div>
+</div>
+
+
+<!-- BENEFICIOS -->
+<section class="beneficios" id="beneficios">
+  <div class="wrap">
+    <span class="sec-supra">— Por qué apuntarte —</span>
+    <h2 class="sec-title-xl">Qué te llega cada semana</h2>
+
+    <div class="cards-3">
+
+      <div class="card">
+        <span class="card-num">01</span>
+        <h3 class="card-title">Acceso anticipado</h3>
+        <div class="card-divider"></div>
+        <p class="card-text">Te avisamos antes que a nadie cuando llega una referencia limitada. Las botellas que de verdad importan vuelan rápido.</p>
+      </div>
+
+      <div class="card">
+        <span class="card-num">02</span>
+        <h3 class="card-title">Historias con nombre y apellido</h3>
+        <div class="card-divider"></div>
+        <p class="card-text">Conoce a los productores detrás de cada etiqueta: su tierra, su filosofía y su manera de trabajar la viña.</p>
+      </div>
+
+      <div class="card">
+        <span class="card-num">03</span>
+        <h3 class="card-title">Invitaciones a catas</h3>
+        <div class="card-divider"></div>
+        <p class="card-text">Eventos en bodega, catas guiadas y encuentros con viticultores que visitan Málaga a lo largo del año.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- LA COMUNIDAD EN CIFRAS -->
+<section class="vision" id="comunidad">
+  <div class="wrap">
+    <h2>La comunidad en cifras</h2>
+    <p>Cientos de personas reciben ya nuestra newsletter cada semana. Curiosos, cocineros y amantes del vino natural que prefieren la cercanía a la publicidad.</p>
+
+    <div class="vision-stats">
+      <div class="vision-stat">
+        <span class="vision-num">800+</span>
+        <span class="vision-lbl">Suscriptores activos</span>
+      </div>
+      <div class="vision-stat">
+        <span class="vision-num">1x</span>
+        <span class="vision-lbl">Email a la semana</span>
+      </div>
+      <div class="vision-stat">
+        <span class="vision-num">10%</span>
+        <span class="vision-lbl">Descuento de bienvenida</span>
+      </div>
+      <div class="vision-stat">
+        <span class="vision-num">0</span>
+        <span class="vision-lbl">Spam</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- TESTIMONIOS -->
+<section class="testimonios" id="testimonios">
+  <div class="wrap">
+    <span class="sec-supra">— Lo que dicen —</span>
+    <h2 class="sec-title-xl">Voces de la comunidad</h2>
+
+    <div class="cards-3">
+
+      <div class="testi-card">
+        <span class="testi-mark">“</span>
+        <p class="testi-text">Es la única newsletter de vino que abro siempre. Cuenta historias, no solo vende botellas.</p>
+        <div class="testi-divider"></div>
+        <p class="testi-author">Marina G.</p>
+        <p class="testi-role">Suscriptora desde 2023</p>
+      </div>
+
+      <div class="testi-card">
+        <span class="testi-mark">“</span>
+        <p class="testi-text">Gracias a un aviso de la newsletter conseguí la última caja del Pet-Nat de Raiña antes de que se agotara.</p>
+        <div class="testi-divider"></div>
+        <p class="testi-author">Javier R.</p>
+        <p class="testi-role">Cliente habitual</p>
+      </div>
+
+      <div class="testi-card">
+        <span class="testi-mark">“</span>
+        <p class="testi-text">Fui a una cata en bodega gracias a una invitación del email. Conocí a Samuel Párraga en persona.</p>
+        <div class="testi-divider"></div>
+        <p class="testi-author">Lucía M.</p>
+        <p class="testi-role">Vecina del Soho, Málaga</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <span class="sec-supra">— Preguntas frecuentes —</span>
+    <h2 class="sec-title-xl">Antes de apuntarte</h2>
+
+    <div class="cards-3">
+
+      <div class="card">
+        <h3 class="card-title">¿Con qué frecuencia escribís?</h3>
+        <div class="card-divider"></div>
+        <p class="card-text">Una vez a la semana, los jueves. Sin avalanchas de correos ni promociones constantes.</p>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">¿Puedo darme de baja cuando quiera?</h3>
+        <div class="card-divider"></div>
+        <p class="card-text">Sí, con un clic al final de cada email. Sin preguntas ni trabas de ningún tipo.</p>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">¿Recibiré solo publicidad?</h3>
+        <div class="card-divider"></div>
+        <p class="card-text">No. Cada newsletter trae historias de productores, recomendaciones y contenido sobre vino natural, además de novedades de la tienda.</p>
+      </div>
+
+    </div>
+  </div>
+</section>   
+
+<!-- NEWSLETTER — CAJA DE SUSCRIPCIÓN -->
+<section class="newsletter" id="apuntate">
+  <div class="newsletter-grid">
+
+    <div>
+      <span class="nl-supra">— Comunidad —</span>
+      <h2 class="nl-h2">Únete a la<br>Comunidad</h2>
+      <p class="nl-desc">Cada semana: nuevas incorporaciones, catas, productores que visitan la bodega y contenidos sobre vino natural. Sin spam. Solo lo que merece tu atención.</p>
+      <ul class="nl-benefits">
+        <li class="nl-benefit">Acceso anticipado a nuevas botellas</li>
+        <li class="nl-benefit">Invitaciones a catas y eventos en bodega</li>
+        <li class="nl-benefit">Contenido exclusivo de Pacheco</li>
+        <li class="nl-benefit">Contenido exclusivo sobre productores</li>
+        <li class="nl-benefit">10% de descuento en tu primer pedido</li>
+      </ul>
+    </div>
+
+    <div class="nl-box">
+      <span class="nl-box-label">Newsletter</span>
+      <div class="klaviyo-form-SYEFQE"></div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const mainNav = document.querySelector('.main-nav');
+
+  hamburger.addEventListener('click', () => {
+    const isOpen = mainNav.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+  });
+
+  mainNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mainNav.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+</body>
+</html>

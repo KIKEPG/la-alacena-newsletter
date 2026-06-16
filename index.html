@@ -1,0 +1,2080 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Alacena · Bodega &amp; Ultramarinos — Málaga</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,800&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+  <style>
+
+    /* ═══════════════════════════════════════
+       VARIABLES & RESET
+    ═══════════════════════════════════════ */
+    :root {
+      --crema:     #F5F0E8;
+      --crema-sec: #EDE8DC;
+      --negro:     #1A1A1A;
+      --verde:     #2D3D2E;
+      --granate:   #7A1F2E;
+      --naranja:   #DC7A11;
+      --btn-dark:  #1A1A1A;
+      --blanco:    #FFFFFF;
+      --f-main:    'Barlow Condensed', sans-serif;
+      --f-accent:  'Playfair Display', serif;
+      --sec-borde: 3px solid #1A1A1A;
+      --card-borde: 2px solid #1A1A1A;
+      --max-w:     1280px;
+      --g:         48px;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      background: var(--crema);
+      color: var(--negro);
+      font-family: var(--f-main);
+      font-weight: 400;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    img  { display: block; max-width: 100%; }
+    a    { color: inherit; text-decoration: none; }
+    ul   { list-style: none; }
+
+    .wrap {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--g);
+    }
+
+    /* ═══════════════════════════════════════
+       BOTONES — sombra desplazada retro
+    ═══════════════════════════════════════ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 13px 26px;
+      font-family: var(--f-main);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 0;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .btn:hover {
+      transform: translate(2px, 2px);
+    }
+
+    .btn-primary {
+      background: var(--negro);
+      color: var(--blanco);
+      border: 2px solid var(--negro);
+      box-shadow: 4px 4px 0 var(--negro);
+    }
+    .btn-primary:hover { box-shadow: 2px 2px 0 var(--negro); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--negro);
+      border: 2px solid var(--negro);
+      box-shadow: 4px 4px 0 var(--negro);
+    }
+    .btn-secondary:hover { box-shadow: 2px 2px 0 var(--negro); }
+
+    .btn-naranja {
+      background: var(--naranja);
+      color: var(--blanco);
+      border: 2px solid var(--negro);
+      box-shadow: 4px 4px 0 var(--negro);
+    }
+    .btn-naranja:hover { box-shadow: 2px 2px 0 var(--negro); }
+
+    .btn-outline-white {
+      background: transparent;
+      color: var(--blanco);
+      border: 2px solid var(--blanco);
+      box-shadow: 4px 4px 0 var(--blanco);
+    }
+    .btn-outline-white:hover { box-shadow: 2px 2px 0 var(--blanco); }
+
+    /* ═══════════════════════════════════════
+       PLACEHOLDER DE IMAGEN
+    ═══════════════════════════════════════ */
+    .img-placeholder {
+      background: #D4C9B8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--f-main);
+      font-size: 14px;
+      font-weight: 400;
+      color: #8a7d6e;
+      border: var(--card-borde);
+    }
+
+    /* ═══════════════════════════════════════
+       SECCIÓN 1: HEADER
+    ═══════════════════════════════════════ */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: var(--crema);
+      border-bottom: var(--sec-borde);
+      height: 72px;
+      display: flex;
+      align-items: center;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .logo { display: flex; flex-direction: column; gap: 2px; }
+
+    .logo-name {
+      font-family: var(--f-main);
+      font-size: 30px;
+      font-weight: 900;
+      color: var(--negro);
+      line-height: 1;
+      letter-spacing: -0.01em;
+    }
+    .logo-name .ast { color: var(--naranja); }
+
+    .logo-sub {
+      font-family: var(--f-main);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--negro);
+    }
+
+    .main-nav ul { display: flex; gap: 32px; align-items: center; }
+
+    .main-nav ul li a {
+      font-family: var(--f-main);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--negro);
+      padding-bottom: 2px;
+      transition: color 0.15s;
+    }
+    .main-nav ul li a:hover      { color: var(--naranja); }
+    .main-nav ul li.active a     { border-bottom: 2px solid var(--naranja); }
+
+    .header-right { display: flex; align-items: center; gap: 14px; }
+
+    .hdr-icon {
+      font-size: 18px;
+      color: var(--negro);
+      cursor: pointer;
+      position: relative;
+      transition: color 0.15s;
+      background: none;
+      border: none;
+    }
+    .hdr-icon:hover { color: var(--naranja); }
+
+    .cart-badge {
+      position: absolute;
+      top: -8px;
+      right: -10px;
+      background: var(--naranja);
+      color: var(--blanco);
+      font-family: var(--f-main);
+      font-size: 9px;
+      font-weight: 700;
+      width: 16px;
+      height: 16px;
+      border-radius: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--negro);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+      padding: 6px;
+      border: 2px solid var(--negro);
+      background: transparent;
+    }
+    .hamburger span { display: block; width: 20px; height: 2px; background: var(--negro); }
+
+    /* ═══════════════════════════════════════
+       SECCIÓN 2: HERO
+    ═══════════════════════════════════════ */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100vh;
+      border-bottom: var(--sec-borde);
+    }
+
+    .hero-left {
+      background: var(--crema);
+      padding: 80px 60px 80px var(--g);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 28px;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 12px;
+      border: 1px solid var(--negro);
+      font-family: var(--f-main);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--naranja);
+      width: fit-content;
+    }
+
+    .hero-h1 {
+      font-family: var(--f-main);
+      font-size: clamp(72px, 8.5vw, 110px);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 0.88;
+      color: var(--negro);
+    }
+
+    .hero-h1 .accent {
+      display: block;
+      font-family: var(--f-accent);
+      font-style: italic;
+      font-weight: 700;
+      text-transform: none;
+      color: var(--granate);
+      font-size: 0.85em;
+    }
+
+    .hero-desc {
+      font-family: var(--f-main);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.65;
+      max-width: 420px;
+      color: #333;
+    }
+
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .hero-right {
+      background: #D4C9B8;
+      border-left: var(--sec-borde);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      min-height: 100vh;
+    }
+
+    .hero-right img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-right-txt {
+      font-family: var(--f-main);
+      font-size: 14px;
+      font-weight: 400;
+      color: #8a7d6e;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-pills {
+      position: absolute;
+      bottom: 32px;
+      left: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 2;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 12px;
+      background: var(--blanco);
+      border: 2px solid var(--negro);
+      font-family: var(--f-main);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--negro);
+      width: fit-content;
+    }
+
+    /* ═══════════════════════════════════════
+       SECCIÓN 3: MARQUEE
+    ═══════════════════════════════════════ */
+    .marquee-bar {
+      background: var(--negro);
+      border-top: var(--sec-borde);
+      border-bottom: var(--sec-borde);
+      height: 48px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: scrollLeft 25s linear infinite;
+    }
+
+    .marquee-item {
+      font-family: var(--f-main);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--blanco);
+      white-space: nowrap;
+      padding-right: 60px;
+    }
+
+    @keyframes scrollLeft {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ═══════════════════════════════════════
+       SECCIÓN 4: FILOSOFÍA
+    ═══════════════════════════════════════ */
+    .filosofia {
+      background: var(--crema);
+      border-top: var(--sec-borde);
+      border-bottom: var(--sec-borde);
+      padding: 80px 0;
+    }
+
+    .sec-title-xl {
+      font-family: var(--f-main);
+      font-size: clamp(48px, 6.5vw, 72px);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 0.9;
+      color: var(--negro);
+      margin-bottom: 40px;
+    }
+
+    .sec-supra {
+      display: block;
+      font-family: var(--f-main);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--naranja);
+      margin-bottom: 12px;
+    }
+
+    .cards-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--blanco);
+      border: var(--card-borde);
+      padding: 28px;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: var(--naranja); }
+
+    .card-title {
+      font-family: var(--f-main);
+      font-size: 20px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+      color: var(--negro);
+      margin-bottom: 14px;
+      line-height: 1.1;
+    }
+
+    .card-divider {
+      height: 2px;
+      background: var(--negro);
+      margin-bottom: 14px;
+    }
+
+    .card-text {
+      font-family: var(--f-main);
+      font-size: 15px;
+      font-weight: 400;
+      color: #444;
+      line-height: 1.65;
+    }
+
+    /* ═══════════════════════════════════════
+       SECCIÓN 5: BESTSELLERS / SELECCIÓN CURADA
+    ═══════════════════════════════════════ */
+    .bestsellers {
+      background: var(--crema-sec);
+      border-top: var(--sec-borde);
+      border-bottom: var(--sec-borde);
+      padding: 80px 0;
+    }
+
+    .sec-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+
+    .sec-title-lg {
+      font-family: var(--f-main);
+      font-size: clamp(40px, 5.5vw, 64px);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 0.9;
+      color: var(--negro);
+    }
+
+    .sec-link {
+      font-family: var(--f-main);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--naranja);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color 0.15s;
+      white-space: nowrap;
+      padding-bottom: 6px;
+    }
+    .sec-link:hover { color: var(--negro); }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    /* Tarjeta de producto */
+    .pcard {
+      background: var(--blanco);
+      border: var(--card-borde);
+      position: relative;
+      transition: border-color 0.2s;
+    }
+    .pcard:hover { border-color: var(--naranja); }
+
+    .pcard-img {
+      position: relative;
+      height: 280px;
+      background: #D4C9B8;
+      border-bottom: var(--card-borde);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .pcard-img img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .pcard-img-txt {
+      font-family: var(--f-main);
+      font-size: 14px;
+      font-weight: 400;
+      color: #8a7d6e;
+      position: relative;
+      z-index: 1;
+    }
+
+    .pcard-tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: var(--naranja);
+      border: 1px solid var(--negro);
+      color: var(--blanco);
+      font-family: var(--f-main);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 8px;
+      z-index: 2;
+    }
+
+    .pcard-wish {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 20px;
+      color: var(--negro);
+      z-index: 2;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: var(--f-main);
+      transition: color 0.15s;
+    }
+    .pcard-wish:hover { color: var(--naranja); }
+
+    .pcard-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(26, 26, 26, 0.65);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.2s;
+      z-index: 3;
+    }
+    .pcard-img:hover .pcard-overlay { opacity: 1; }
+
+    .pcard-body { padding: 16px; }
+
+    .pcard-name {
+      font-family: var(--f-main);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--negro);
+      margin-bottom: 4px;
+      line-height: 1.2;
+    }
+
+    .pcard-desc {
+      font-family: var(--f-main);
+      font-size: 13px;
+      font-weight: 400;
+      color: #555;
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+    .pcard-price {
+      font-family: var(--f-accent);
+      font-style: italic;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--naranja);
+    }
+
+    .bestsellers-cta {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    /* ═══════════════════════════════════════
+       SECCIÓN 6: VISIÓN DEL VINO (granate)
+    ═══════════════════════════════════════ */
+    .vision {
+      background: var(--granate);
+      border-top: var(--sec-borde);
+      border-bottom: var(--sec-borde);
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .vision h2 {
+      font-family: var(--f-main);
+      font-size: clamp(48px, 7vw, 72px);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 0.9;
+      color: var(--blanco);
+      margin-bottom: 24px;
+    }
+
+    .vision p {
+      font-family: var(--f-main);
+      font-size: 16px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.8);
+      max-width: 700px;
+      margin: 0 auto 60px;
+      line-height: 1.65;
+    }
+
+    .vision-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .vision-stat {
+      padding: 36px 20px;
+      border-right: 1px solid rgba(255,255,255,0.3);
+    }
+    .vision-stat:last-child { border-right: none; }
+
+    .vision-num {
+      display: block;
+      font-family: var(--f-main);
+      font-size: clamp(40px, 5vw, 56px);
+      font-weight: 900;
+      font-style: italic;
+      color: var(--blanco);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .vision-lbl {
+      display: block;
+      font-family: var(--f-main);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* ═══════════════════════════════════════
+       SECCIÓN 7: PRODUCTORES
+    ═══════════════════════════════════════ */
+    .productores {
+      background: var(--crema);
+      border-top: var(--sec-borde);
+      border-bottom: var(--sec-borde);
+      padding: 80px 0;
+    }
+
+    .prod-card {
+      background: var(--blanco);
+      border: var(--card-borde);
+      transition: border-color 0.2s;
+    }
+    .prod-card:hover { border-color: var(--naranja); }
+
+    .prod-card-img {
+      height: 220px;
+      background: #D4C9B8;
+      border-bottom: var(--card-borde);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .prod-card-img img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .prod-card-img-txt {
+      font-family: var(--f-main);
+      font-size: 14px;
+      font-weight: 400;
+      color: #8a7d6e;
+      position: relative;
+      z-index: 1;
+    }
+
+    .prod-region-tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: var(--naranja);
+      border: 1px solid var(--negro);
+      color: var(--blanco);
+      font-family: var(--f-main);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 8px;
+      z-index: 2;
+    }
+
+    .prod-card-body { padding: 24px; }
+
+    .prod-name {
+      font-family: var(--f-main);
+      font-size: 22px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+      color: var(--negro);
+      margin-bottom: 4px;
+      line-height: 1.1;
+    }
+
+    .prod-region {
+      font-family: var(--f-main);
+      font-size: 14px;
+      font-weight: 400;
+      color: #555;
+      margin-bottom: 12px;
+    }
+
+    .prod-desc {
+      font-family: var(--f-main);
+      font-size: 14px;
+      font-weight: 400;
+      color: #444;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .prod-link {
+      font-family: var(--f-main);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--naranja);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.15s;
+    }
+    .prod-link:hover { color: var(--negro); }
+
+    /* ═══════════════════════════════════════
+       SECCIÓN 8: LA EXPERIENCIA (split)
+    ═══════════════════════════════════════ */
+    .experiencia {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: var(--sec-borde);
+      border-bottom: var(--sec-borde);
+      min-height: 580px;
+    }
+
+    .exp-left {
+      background: var(--verde);
+      border-right: var(--sec-borde);
+      padding: 80px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .exp-label-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 10px;
+      border: 1px solid rgba(245,240,232,0.4);
+      font-family: var(--f-main);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--naranja);
+      width: fit-content;
+    }
+
+    .exp-left h2 {
+      font-family: var(--f-main);
+      font-size: clamp(36px, 4.5vw, 56px);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 0.9;
+      color: var(--blanco);
+    }
+
+    .exp-left p {
+      font-family: var(--f-main);
+      font-size: 15px;
+      font-weight: 400;
+      color: #ccc;
+      line-height: 1.65;
+      max-width: 400px;
+    }
+
+    .exp-list { display: flex; flex-direction: column; gap: 10px; }
+
+    .exp-list li {
+      font-family: var(--f-main);
+      font-size: 15px;
+      font-weight: 400;
+      color: #ddd;
+      display: flex;
+      gap: 8px;
+    }
+
+    .exp-list li::before { content: '→'; color: var(--naranja); flex-shrink: 0; }
+
+    .exp-right {
+      background: #D4C9B8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .exp-right img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .exp-right-txt {
+      font-family: var(--f-main);
+      font-size: 14px;
+      font-weight: 400;
+      color: #8a7d6e;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ═══════════════════════════════════════
+       SECCIÓN 9: COMUNIDAD Y PERTENENCIA
+    ═══════════════════════════════════════ */
+    
+    .comunidad {
+      background: var(--crema-sec);
+      border-top: var(--sec-borde);
+      border-bottom: var(--sec-borde);
+      padding: 80px 0 0;
+    }
+
+    .comunidad-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin-bottom: 40px;
+    }
+
+    .comunidad-text { padding-right: 60px; padding-bottom: 80px; }
+
+    .comunidad-text h2 {
+      font-family: var(--f-main);
+      font-size: clamp(40px, 5.5vw, 72px);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 0.9;
+      color: var(--negro);
+      margin-bottom: 28px;
+    }
+
+    .comunidad-text p {
+      font-family: var(--f-main);
+      font-size: 16px;
+      font-weight: 400;
+      color: #444;
+      line-height: 1.65;
+    }
+
+    .comunidad-images {
+      border-left: var(--sec-borde);
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+    }
+
+    .comunidad-img {
+      background: #D4C9B8;
+      border-bottom: var(--sec-borde);
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--f-main);
+      font-size: 14px;
+      color: #8a7d6e;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .comunidad-img img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%);
+    }
+
+    .comunidad-img-txt { position: relative; z-index: 1; }
+
+    /* galería 4 en fila */
+    .gallery-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: var(--sec-borde);
+    }
+
+    .gallery-item {
+      height: 240px;
+      background: #D4C9B8;
+      border-right: var(--sec-borde);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--f-main);
+      font-size: 14px;
+      color: #8a7d6e;
+      overflow: hidden;
+      position: relative;
+    }
+    .gallery-item:last-child { border-right: none; }
+
+    .gallery-item img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%);
+    }
+
+    .gallery-item-txt { position: relative; z-index: 1; }
+
+    /* ═══════════════════════════════════════
+       SECCIÓN 10: NEWSLETTER
+    ═══════════════════════════════════════ */
+    .newsletter {
+      background: var(--negro);
+      border-top: var(--sec-borde);
+      border-bottom: var(--sec-borde);
+      padding: 100px var(--g);
+    }
+
+    .newsletter-grid {
+      display: grid;
+      grid-template-columns: 60fr 40fr;
+      gap: 60px;
+      align-items: start;
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    .nl-supra {
+      display: block;
+      font-family: var(--f-main);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--naranja);
+      margin-bottom: 16px;
+    }
+
+    .nl-h2 {
+      font-family: var(--f-main);
+      font-size: clamp(48px, 6vw, 72px);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 0.9;
+      color: var(--blanco);
+      margin-bottom: 20px;
+    }
+
+    .nl-desc {
+      font-family: var(--f-main);
+      font-size: 16px;
+      font-weight: 400;
+      color: #aaa;
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+
+    .nl-benefits { display: flex; flex-direction: column; gap: 10px; }
+
+    .nl-benefit {
+      font-family: var(--f-main);
+      font-size: 14px;
+      font-weight: 400;
+      color: #ccc;
+      display: flex;
+      gap: 8px;
+    }
+    .nl-benefit::before { content: '★'; color: var(--naranja); flex-shrink: 0; }
+
+    .nl-box {
+      background: #272626;
+      border: 3px solid var(--naranja);
+      box-shadow: 6px 6px 0 var(--naranja);
+      padding: 40px;
+    }
+
+    .nl-box-label {
+      display: block;
+      font-family: var(--f-main);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--naranja);
+      margin-bottom: 20px;
+    }
+
+    .nl-input {
+      width: 100%;
+      height: 52px;
+      background: var(--negro);
+      border: 2px solid var(--blanco);
+      color: var(--blanco);
+      font-family: var(--f-main);
+      font-size: 15px;
+      font-weight: 400;
+      padding: 0 16px;
+      outline: none;
+      margin-bottom: 12px;
+      border-radius: 0;
+    }
+    .nl-input::placeholder { color: #555; }
+
+    .nl-submit {
+      width: 100%;
+      height: 52px;
+      background: var(--naranja);
+      border: 2px solid var(--negro);
+      box-shadow: 4px 4px 0 rgba(220,122,17,0.6);
+      color: var(--blanco);
+      font-family: var(--f-main);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      margin-bottom: 16px;
+      border-radius: 0;
+    }
+    .nl-submit:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 rgba(220,122,17,0.6);
+    }
+
+    .nl-legal {
+      font-family: var(--f-main);
+      font-size: 12px;
+      font-weight: 400;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .nl-checkbox {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-family: var(--f-main);
+      font-size: 12px;
+      font-weight: 400;
+      color: #555;
+      cursor: pointer;
+    }
+
+    /* ═══════════════════════════════════════
+       SECCIÓN 11: MARCAS (estático)
+    ═══════════════════════════════════════ */
+    .marcas {
+      background: var(--crema);
+      border-top: var(--sec-borde);
+      border-bottom: var(--sec-borde);
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .marcas-row {
+      font-family: var(--f-main);
+      font-size: 20px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--negro);
+    }
+
+    .marcas-sep { color: var(--naranja); margin: 0 12px; }
+
+    /* ═══════════════════════════════════════
+       SECCIÓN 12: FEATURES / VENTAJAS
+    ═══════════════════════════════════════ */
+    .features {
+      background: var(--crema);
+      border-top: var(--sec-borde);
+      border-bottom: var(--sec-borde);
+      padding: 60px 0;
+    }
+
+    .feat-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+
+    .feat-item {
+      padding: 28px 24px;
+      border-right: 2px solid var(--negro);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .feat-item:last-child { border-right: none; }
+
+    .feat-icon {
+      font-family: var(--f-main);
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--naranja);
+    }
+
+    .feat-title {
+      font-family: var(--f-main);
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--negro);
+    }
+
+    .feat-desc {
+      font-family: var(--f-main);
+      font-size: 13px;
+      font-weight: 400;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    /* ═══════════════════════════════════════
+       SECCIÓN 13: BLOG / ARTÍCULOS
+    ═══════════════════════════════════════ */
+    .blog {
+      background: var(--crema-sec);
+      border-top: var(--sec-borde);
+      border-bottom: var(--sec-borde);
+      padding: 80px 0;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .blog-card {
+      background: var(--blanco);
+      border: var(--card-borde);
+    }
+
+    .blog-img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #D4C9B8;
+      border-bottom: var(--card-borde);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .blog-img img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .blog-img-txt {
+      font-family: var(--f-main);
+      font-size: 14px;
+      font-weight: 400;
+      color: #8a7d6e;
+      position: relative;
+      z-index: 1;
+    }
+
+    .blog-body { padding: 20px; }
+
+    .blog-date {
+      font-family: var(--f-main);
+      font-size: 12px;
+      font-weight: 400;
+      color: #888;
+      margin-bottom: 8px;
+    }
+
+    .blog-tag {
+      display: inline-block;
+      background: var(--naranja);
+      border: 1px solid var(--negro);
+      color: var(--blanco);
+      font-family: var(--f-main);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 3px 8px;
+      margin-bottom: 10px;
+    }
+
+    .blog-card-title {
+      font-family: var(--f-main);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--negro);
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+
+    .blog-link {
+      font-family: var(--f-main);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--naranja);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.15s;
+    }
+    .blog-link:hover { color: var(--negro); }
+
+    /* ═══════════════════════════════════════
+       SECCIÓN 14: BANNER CTA FULL-WIDTH
+    ═══════════════════════════════════════ */
+    .cta-banner {
+      background: var(--verde);
+      border-top: var(--sec-borde);
+      border-bottom: var(--sec-borde);
+      padding: 80px var(--g);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .cta-banner h2 {
+      font-family: var(--f-main);
+      font-size: clamp(32px, 4.5vw, 52px);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 0.9;
+      color: var(--blanco);
+      max-width: 660px;
+    }
+
+    .cta-banner-btn { flex-shrink: 0; }
+
+    /* ═══════════════════════════════════════
+       SECCIÓN 15: FOOTER
+    ═══════════════════════════════════════ */
+    footer {
+      background: var(--negro);
+      border-top: var(--sec-borde);
+      padding: 80px 0 40px;
+      color: var(--blanco);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-logo {
+      font-family: var(--f-main);
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--blanco);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+    .footer-logo .ast { color: var(--naranja); }
+
+    .footer-desc {
+      font-family: var(--f-main);
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.7;
+      margin-bottom: 22px;
+      max-width: 240px;
+    }
+
+    .footer-form { display: flex; margin-bottom: 12px; }
+
+    .footer-input {
+      flex: 1;
+      height: 44px;
+      padding: 0 14px;
+      background: rgba(255,255,255,0.07);
+      border: 2px solid rgba(255,255,255,0.2);
+      border-right: none;
+      color: var(--blanco);
+      font-family: var(--f-main);
+      font-size: 13px;
+      font-weight: 400;
+      outline: none;
+      border-radius: 0;
+    }
+    .footer-input::placeholder { color: rgba(255,255,255,0.3); }
+
+    .footer-submit {
+      height: 44px;
+      padding: 0 16px;
+      background: var(--naranja);
+      border: 2px solid var(--negro);
+      box-shadow: 3px 3px 0 var(--naranja);
+      color: var(--blanco);
+      font-family: var(--f-main);
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      border-radius: 0;
+    }
+    .footer-submit:hover {
+      transform: translate(1px, 1px);
+      box-shadow: 2px 2px 0 var(--naranja);
+    }
+
+    .footer-privacy {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-family: var(--f-main);
+      font-size: 11px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.3);
+      cursor: pointer;
+    }
+
+    .footer-col h4 {
+      font-family: var(--f-main);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 20px;
+    }
+
+    .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+
+    .footer-col ul li a {
+      font-family: var(--f-main);
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      transition: color 0.15s;
+    }
+    .footer-col ul li a:hover { color: var(--naranja); }
+
+    .footer-mini { display: flex; gap: 12px; margin-bottom: 14px; align-items: center; }
+
+    .footer-mini-img {
+      width: 60px;
+      height: 80px;
+      background: #333;
+      border: 1px solid #555;
+      flex-shrink: 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--f-main);
+      font-size: 10px;
+      color: #666;
+    }
+    .footer-mini-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .footer-mini-name {
+      font-family: var(--f-main);
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 4px;
+    }
+
+    .footer-mini-price {
+      font-family: var(--f-accent);
+      font-style: italic;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--naranja);
+    }
+
+    .footer-social { display: flex; gap: 10px; }
+
+    .social-btn {
+      width: 40px;
+      height: 40px;
+      border: 2px solid var(--blanco);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--f-main);
+      font-size: 12px;
+      font-weight: 900;
+      color: var(--blanco);
+      text-decoration: none;
+      cursor: pointer;
+      transition: box-shadow 0.15s ease, border-color 0.15s ease, color 0.15s;
+    }
+    .social-btn:hover {
+      box-shadow: 3px 3px 0 var(--naranja);
+      border-color: var(--naranja);
+      color: var(--naranja);
+    }
+
+    .footer-divider {
+      height: 1px;
+      background: #333;
+      margin-bottom: 28px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-bottom p {
+      font-family: var(--f-main);
+      font-size: 12px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.22);
+    }
+
+    /* ═══════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════ */
+    @media (max-width: 1100px) {
+      :root { --g: 32px; }
+      .grid-4     { grid-template-columns: repeat(2, 1fr); }
+      .cards-3    { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .vision-stats { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      :root { --g: 20px; }
+
+      .main-nav { display: none; }
+      .hamburger { display: flex; }
+
+      .hero { grid-template-columns: 1fr; }
+      .hero-right {
+        min-height: 50vh;
+        border-left: none;
+        border-top: var(--sec-borde);
+        order: -1;
+      }
+      .hero-left { padding: 48px var(--g); }
+      .hero-h1  { font-size: 60px; }
+      .hero-btns { flex-direction: column; }
+
+      .experiencia { grid-template-columns: 1fr; }
+      .exp-right {
+        min-height: 300px;
+        border-top: var(--sec-borde);
+      }
+      .exp-left { padding: 60px var(--g); }
+
+      .comunidad-grid { grid-template-columns: 1fr; }
+      .comunidad-text { padding-right: 0; padding-bottom: 40px; }
+      .comunidad-images {
+        border-left: none;
+        border-top: var(--sec-borde);
+      }
+
+      .gallery-row { grid-template-columns: repeat(2, 1fr); }
+      .gallery-item { border-bottom: var(--sec-borde); }
+
+      .newsletter-grid { grid-template-columns: 1fr; }
+      .newsletter { padding: 60px var(--g); }
+
+      .grid-4 { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .cards-3 { grid-template-columns: 1fr; }
+      .blog-grid { grid-template-columns: 1fr; }
+
+      .cta-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 60px var(--g);
+      }
+
+      .vision-stats { grid-template-columns: repeat(2, 1fr); }
+
+      .feat-grid { grid-template-columns: repeat(2, 1fr); }
+      .feat-item:nth-child(even) { border-right: none; }
+      .feat-item:nth-child(3),
+      .feat-item:nth-child(4) { border-top: 2px solid var(--negro); }
+
+      .footer-grid { grid-template-columns: 1fr; }
+      .sec-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- SECCIÓN 1: HEADER -->
+<header>
+  <div class="wrap">
+    <div class="header-inner">
+      <a img src="Logo-1.jpg" alt="La Alacena" style="height: 48px; width: auto;">
+      </a>
+      <nav class="main-nav">
+        <ul>
+          <li class="active"><a href="index.html">Vinos</a></li>
+          <li><a href="#">Filosofía</a></li>
+          <li><a href="#">Productores</a></li>
+          <li><a href="#">Espacio</a></li>
+          <li><a href="#">Comunidad</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-right">
+        <a href="#" class="btn btn-naranja" style="padding: 10px 18px; font-size: 12px;">Descubrir vinos</a>
+        <button class="hdr-icon" title="Mi cuenta">♦</button>
+        <button class="hdr-icon" title="Carrito" style="position:relative;">
+          ◉<span class="cart-badge">0</span>
+        </button>
+        <button class="hdr-icon" title="Buscar">◎</button>
+        <button class="hamburger" aria-label="Menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+
+<!-- SECCIÓN 2: HERO -->
+<section class="hero">
+
+  <div class="hero-left">
+    <span class="hero-label">Tienda de Vinos Naturales </span>
+
+    <h1 class="hero-h1">
+      VINOS,<br>
+      <span class="accent">Memoria</span>
+      Y COMUNIDAD
+    </h1>
+
+    <p class="hero-desc">
+      Seleccionamos vinos honestos de pequeños productores que trabajan desde el respeto por la tierra y el tiempo. No vendemos catálogos. Ofrecemos descubrimiento.
+    </p>
+
+    <div class="hero-btns">
+      <a href="#" class="btn btn-primary">Explorar selección</a>
+      <a href="#" class="btn btn-secondary">Nuestra historia</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <img src="references/vino3.jpeg" alt="La Alacena — bodega">
+    <span class="hero-right-txt">[ imagen bodega ]</span>
+    <div class="hero-pills">
+      <span class="hero-pill">#VINONatural</span>
+      <span class="hero-pill">Mínima Intervención</span>
+      <span class="hero-pill">Curación Humana</span>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- SECCIÓN 3: MARQUEE -->
+<div class="marquee-bar" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">★ VINOS NATURALES ★ PEQUEÑOS PRODUCTORES ★ VINOS CON ALMA ★ CULTURA COMPARTIDA ★ CURACIÓN CON CRITERIO ★ HOSPITALIDAD CONTEMPORÁNEA ★ BEBE Y DEJA VIVIR ★ VINOS NATURALES ★ PEQUEÑOS PRODUCTORES ★ VINOS CON ALMA ★ CULTURA COMPARTIDA ★ CURACIÓN CON CRITERIO ★ HOSPITALIDAD CONTEMPORÁNEA ★ BEBE Y DEJA VIVIR ★</span>
+    <span class="marquee-item">★ VINOS NATURALES ★ PEQUEÑOS PRODUCTORES ★ VINOS CON ALMA ★ CULTURA COMPARTIDA ★ CURACIÓN CON CRITERIO ★ HOSPITALIDAD CONTEMPORÁNEA ★ BEBE Y DEJA VIVIR ★ VINOS NATURALES ★ PEQUEÑOS PRODUCTORES ★ VINOS CON ALMA ★ CULTURA COMPARTIDA ★ CURACIÓN CON CRITERIO ★ HOSPITALIDAD CONTEMPORÁNEA ★ BEBE Y DEJA VIVIR ★</span>
+  </div>
+</div>
+
+
+<!-- SECCIÓN 4: NUESTRA FILOSOFÍA -->
+<section class="filosofia">
+  <div class="wrap">
+    <h2 class="sec-title-xl">Nuestra Filosofía</h2>
+    <div class="cards-3">
+
+      <div class="card">
+        <h3 class="card-title">El vino como acto cultural</h3>
+        <div class="card-divider"></div>
+        <p class="card-text">No vendemos botellas. Construimos una forma más humana de relacionarse con el vino. Cada referencia llega aquí porque tiene algo que contar.</p>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">Contra la industrialización</h3>
+        <div class="card-divider"></div>
+        <p class="card-text">Defendemos pequeñas producciones, relaciones directas con productores y el trabajo desde el respeto por la tierra, la uva y el tiempo.</p>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">Educación sin elitismo</h3>
+        <div class="card-divider"></div>
+        <p class="card-text">El aprendizaje sobre el vino debe ser cercano, intuitivo y accesible. Sin códigos excluyentes. Solo curiosidad y ganas de descubrir.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- SECCIÓN 5: BESTSELLERS / SELECCIÓN CURADA -->
+<section class="bestsellers">
+  <div class="wrap">
+    <div class="sec-header">
+      <div>
+        <span class="sec-supra">— Productos —</span>
+        <h2 class="sec-title-lg">Selección Curada</h2>
+      </div>
+      <a href="#" class="sec-link">Ver toda la colección →</a>
+    </div>
+
+    <div class="grid-4">
+
+      <div class="pcard">
+        <div class="pcard-img">
+          <img src="references/vino1.jpeg" alt="Garnacha Salvaje">
+          <span class="pcard-img-txt">[ botella ]</span>
+          <span class="pcard-tag">Favorito</span>
+          <button class="pcard-wish">♡</button>
+          <div class="pcard-overlay">
+            <button class="btn btn-naranja" style="font-size:12px; padding:12px 18px;">Añadir al carrito</button>
+          </div>
+        </div>
+        <div class="pcard-body">
+          <p class="pcard-name">Rapagón Blanco 2024</p>
+          <p class="pcard-desc">Blanco bajo velo, mínima intervención. Mollina, Málaga.</p>
+          <span class="pcard-price">12 €</span>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pcard-img">
+          <img src="references/vino2.jpeg" alt="Las amigas">
+          <span class="pcard-img-txt">[ botella ]</span>
+          <span class="pcard-tag">Biodinámico</span>
+          <button class="pcard-wish">♡</button>
+          <div class="pcard-overlay">
+            <button class="btn btn-naranja" style="font-size:12px; padding:12px 18px;">Añadir al carrito</button>
+          </div>
+        </div>
+        <div class="pcard-body">
+          <p class="pcard-name">Las Amigas 2024</p>
+          <p class="pcard-desc">Blanco de viñedo viejo, fermentación espontánea. Galicia.</p>
+          <span class="pcard-price">16 €</span>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pcard-img">
+          <img src="references/vino3.jpeg" alt="La triada">
+          <span class="pcard-img-txt">[ botella ]</span>
+          <span class="pcard-tag">Naranja</span>
+          <button class="pcard-wish">♡</button>
+          <div class="pcard-overlay">
+            <button class="btn btn-naranja" style="font-size:12px; padding:12px 18px;">Añadir al carrito</button>
+          </div>
+        </div>
+        <div class="pcard-body">
+          <p class="pcard-name">La Triada 2024</p>
+          <p class="pcard-desc">Maceración en contacto con pieles 45 días. Penedès.</p>
+          <span class="pcard-price">18 €</span>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pcard-img">
+          <img src="references/vino4.jpeg" alt="Raiña">
+          <span class="pcard-img-txt">[ botella ]</span>
+          <span class="pcard-tag">Pet-Nat</span>
+          <button class="pcard-wish">♡</button>
+          <div class="pcard-overlay">
+            <button class="btn btn-naranja" style="font-size:12px; padding:12px 18px;">Añadir al carrito</button>
+          </div>
+        </div>
+        <div class="pcard-body">
+          <p class="pcard-name">Raiña 2024</p>
+          <p class="pcard-desc">Espumoso método ancestral, sin añadidos. Monterrei, Galicia.</p>
+          <span class="pcard-price">28,70 €</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="bestsellers-cta">
+      <a href="#" class="btn btn-secondary">Ver todos los vinos</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- SECCIÓN 6: NUESTRA VISIÓN DEL VINO -->
+<section class="vision">
+  <div class="wrap">
+    <h2>Nuestra Visión del Vino</h2>
+    <p>Defendemos el vino como expresión honesta de un lugar, un clima y un trabajo manual. Sin correcciones, sin industrialización. Solo territorio, fermentación y tiempo.</p>
+
+    <div class="vision-stats">
+      <div class="vision-stat">
+        <span class="vision-num">100%</span>
+        <span class="vision-lbl">Vinos naturales</span>
+      </div>
+      <div class="vision-stat">
+        <span class="vision-num">0</span>
+        <span class="vision-lbl">Conservantes</span>
+      </div>
+      <div class="vision-stat">
+        <span class="vision-num">100%</span>
+        <span class="vision-lbl">Productores directos</span>
+      </div>
+      <div class="vision-stat">
+        <span class="vision-num">100%</span>
+        <span class="vision-lbl">Curación propia</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- SECCIÓN 7: CONOCE A LOS PRODUCTORES -->
+<section class="productores">
+  <div class="wrap">
+    <span class="sec-supra">— Productores —</span>
+    <h2 class="sec-title-lg" style="margin-bottom: 40px;">Conoce a los productores</h2>
+
+    <div class="cards-3">
+
+      <div class="prod-card">
+        <div class="prod-card-img">
+          <img src="references/samuel párraga.png" alt="Samuel Párraga">
+          <span class="prod-card-img-txt">[ imagen productor ]</span>
+          <span class="prod-region-tag">Málaga</span>
+        </div>
+        <div class="prod-card-body">
+          <h3 class="prod-name">Samuel Párraga</h3>
+          <p class="prod-region">Mollina, Málaga · España</p>
+          <p class="prod-desc">Viticultor malagueño que trabaja con Pedro Ximénez bajo velo de flor. Fermentaciones espontáneas, sin sulfitos añadidos.</p>
+          <a href="producto.html" class="prod-link">Ver vinos →</a>
+        </div>
+      </div>
+
+      <div class="prod-card">
+        <div class="prod-card-img">
+          <img src="references/fotovino5.jpg" alt="Raíces Aéreas">
+          <span class="prod-card-img-txt">[ imagen productor ]</span>
+          <span class="prod-region-tag">Galicia</span>
+        </div>
+        <div class="prod-card-body">
+          <h3 class="prod-name">Raíces Aéreas</h3>
+          <p class="prod-region">Galicia · España</p>
+          <p class="prod-desc">Proyecto colectivo de viticultores gallegos en conversión biodinámica. Blancos atlánticos con personalidad propia.</p>
+          <a href="#" class="prod-link">Ver vinos →</a>
+        </div>
+      </div>
+
+      <div class="prod-card">
+        <div class="prod-card-img">
+          <span class="prod-card-img-txt">[ imagen productor ]</span>
+          <span class="prod-region-tag">Cataluña</span>
+        </div>
+        <div class="prod-card-body">
+          <h3 class="prod-name">Cal Xiurriu</h3>
+          <p class="prod-region">Terra Alta, Cataluña · España</p>
+          <p class="prod-desc">Pequeña bodega familiar en Terra Alta. Vinos naranjas y blancos con largas maceraciones en ánfora de barro.</p>
+          <a href="#" class="prod-link">Ver vinos →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- SECCIÓN 8: LA EXPERIENCIA (split 50/50) -->
+<section class="experiencia">
+
+  <div class="exp-left">
+    <span class="exp-label-tag">Nuestro diferencial</span>
+    <h2>Qué nos hace<br>diferentes.</h2>
+    <p>Más que una tienda de vinos. Un punto de encuentro donde el descubrimiento es la norma y la conversación es bienvenida.</p>
+    <ul class="exp-list">
+      <li>Curación con criterio propio, no por volumen</li>
+      <li>Relación directa con cada productor</li>
+      <li>Espacio para el descubrimiento y la conversación</li>
+      <li>Club del vino con comunidad activa</li>
+    </ul>
+    <a href="#" class="btn btn-outline-white" style="margin-top: 8px; align-self: flex-start;">Visítanos</a>
+  </div>
+
+  <div class="exp-right">
+    <img src="references/fotohome2.png" alt="Espacio La Alacena">
+    <span class="exp-right-txt">[ imagen espacio ]</span>
+  </div>
+
+</section>
+
+
+<!-- SECCIÓN 9: COMUNIDAD Y PERTENENCIA -->
+<section class="comunidad">
+  <div class="wrap">
+    <div class="comunidad-grid">
+
+      <div class="comunidad-text">
+        <h2>Comunidad y<br>pertenencia</h2>
+        <p>Más de 800 personas forman ya parte de la comunidad La Alacena. Curiosos, cocineros, amantes de la gastronomía y simplemente gente que disfruta de una buena botella.</p>
+        <br>
+        <p>No vendemos solo vino. Construimos pertenencia. Un espacio donde aprender, preguntar y compartir sin los formalismos del mundo del vino convencional.</p>
+      </div>
+
+      <div class="comunidad-images">
+
+        <div class="comunidad-img">
+          <img src="references/fotohome3.png" alt="comunidad 2">
+          <span class="comunidad-img-txt">[ imagen comunidad ]</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- SECCIÓN 10: NEWSLETTER -->
+<section class="newsletter">
+  <div class="newsletter-grid">
+
+    <div>
+      <span class="nl-supra">— Comunidad —</span>
+      <h2 class="nl-h2">Únete a la<br>Comunidad</h2>
+      <p class="nl-desc">Cada semana: nuevas incorporaciones, catas, productores que visitan la bodega y contenidos sobre vino natural. Sin spam. Solo lo que merece tu atención.</p>
+      <ul class="nl-benefits">
+        <li class="nl-benefit">Acceso anticipado a nuevas botellas</li>
+        <li class="nl-benefit">Invitaciones a catas y eventos en bodega</li>
+        <li class="nl-benefit">Contenido exclusivo sobre productores</li>
+        <li class="nl-benefit">10% de descuento en tu primer pedido</li>
+      </ul>
+    </div>
+
+    <div class="nl-box">
+      <span class="nl-box-label">Newsletter</span>
+      <input type="email" class="nl-input" placeholder="Tu correo electrónico">
+      <button class="nl-submit">Suscribirme →</button>
+      <p class="nl-legal">◦ Sin spam. Baja cuando quieras.</p>
+      <label class="nl-checkbox">
+        <input type="checkbox" style="margin-top:2px; flex-shrink:0;">
+        He leído la política de privacidad
+      </label>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- SECCIÓN 11: MARCAS / PRODUCTORES -->
+<section class="marcas">
+  <div class="wrap">
+    <p class="marcas-row">
+      Samuel Párraga<span class="marcas-sep">★</span>Raíces Aéreas<span class="marcas-sep">★</span>Cal Xiurriu<span class="marcas-sep">★</span>JC Garnier<span class="marcas-sep">★</span>La Perdida<span class="marcas-sep">★</span>Marc Delienne
+    </p>
+  </div>
+</section>
+
+
+<!-- SECCIÓN 12: FEATURES / VENTAJAS -->
+<section class="features">
+  <div class="wrap">
+    <div class="feat-grid">
+
+      <div class="feat-item">
+        <span class="feat-icon">◎</span>
+        <span class="feat-title">Selección propia</span>
+        <span class="feat-desc">Curación directa desde el productor</span>
+      </div>
+
+      <div class="feat-item">
+        <span class="feat-icon">◎</span>
+        <span class="feat-title">Envío en 24-48h</span>
+        <span class="feat-desc">Temperatura controlada en toda la cadena</span>
+      </div>
+
+      <div class="feat-item">
+        <span class="feat-icon">◎</span>
+        <span class="feat-title">Productores directos</span>
+        <span class="feat-desc">Sin intermediarios, precio justo</span>
+      </div>
+
+      <div class="feat-item">
+        <span class="feat-icon">◎</span>
+        <span class="feat-title">Club del vino</span>
+        <span class="feat-desc">Comunidad activa y descuentos exclusivos</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- SECCIÓN 13: BLOG / ARTÍCULOS -->
+<section class="blog">
+  <div class="wrap">
+    <span class="sec-supra">— Del blog —</span>
+    <h2 class="sec-title-lg">Vino y Territorio</h2>
+
+    <div class="blog-grid">
+
+      <div class="blog-card">
+        <div class="blog-img">
+          <img src="references/fotohome1.jpeg" alt="Párraga bajo velo">
+          <span class="blog-img-txt">[ imagen ]</span>
+        </div>
+        <div class="blog-body">
+          <p class="blog-date">12 Mayo 2025</p>
+          <span class="blog-tag">Natural</span>
+          <h3 class="blog-card-title">Samuel Párraga: vinos bajo velo en Mollina</h3>
+          <a href="#" class="blog-link">Leer más →</a>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-img">
+          <img src="references/fotohome2.png" alt="Galicia La Perdida">
+          <span class="blog-img-txt">[ imagen ]</span>
+        </div>
+        <div class="blog-body">
+          <p class="blog-date">5 Abril 2025</p>
+          <span class="blog-tag">Territorio</span>
+          <h3 class="blog-card-title">Galicia salvaje: La Perdida y el Monterrei</h3>
+          <a href="#" class="blog-link">Leer más →</a>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-img">
+          <img src="references/fotohome3.png" alt="Guía vino natural">
+          <span class="blog-img-txt">[ imagen ]</span>
+        </div>
+        <div class="blog-body">
+          <p class="blog-date">18 Marzo 2025</p>
+          <span class="blog-tag">Guía</span>
+          <h3 class="blog-card-title">¿Qué es un vino natural? Guía para empezar</h3>
+          <a href="#" class="blog-link">Leer más →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- SECCIÓN 14: BANNER CTA FULL-WIDTH -->
+<section class="cta-banner">
+  <h2>Vinos naturales,<br>territorio honesto.</h2>
+  <div class="cta-banner-btn">
+    <a href="#" class="btn btn-outline-white">Ver tienda →</a>
+  </div>
+</section>
+
+
+<!-- SECCIÓN 15: FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+
+      <div>
+        <div class="footer-logo">LA<span class="ast">*</span>ALACENA</div>
+        <p class="footer-desc">Bodega &amp; Ultramarinos en Málaga. Vinos naturales con criterio, territorio y alma.</p>
+        <div class="footer-form">
+          <input type="email" class="footer-input" placeholder="Tu correo electrónico">
+          <button class="footer-submit">→</button>
+        </div>
+        <label class="footer-privacy">
+          <input type="checkbox" style="margin-top:2px; flex-shrink:0;">
+          Acepto la política de privacidad
+        </label>
+      </div>
+
+      <div class="footer-col">
+        <h4>Novedades</h4>
+        <div class="footer-mini">
+          <div class="footer-mini-img">
+            <img src="references/vino1.jpeg" alt="Rapagón">
+          </div>
+          <div>
+            <p class="footer-mini-name">Rapagón blanco 2024</p>
+            <span class="footer-mini-price">12 €</span>
+          </div>
+        </div>
+        <div class="footer-mini">
+          <div class="footer-mini-img">
+            <img src="references/vino2.jpeg" alt="Las amigas">
+          </div>
+          <div>
+            <p class="footer-mini-name">Las amigas 2024</p>
+            <span class="footer-mini-price">16 €</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Páginas</h4>
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Tienda</a></li>
+          <li><a href="#">Club</a></li>
+          <li><a href="#">Sobre nosotros</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Redes</h4>
+        <div class="footer-social">
+          <a href="#" class="social-btn">IG</a>
+          <a href="#" class="social-btn">FB</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <div class="footer-bottom">
+      <p>La Alacena © 2026. Todos los derechos reservados.</p>
+      <p>Política de privacidad · Aviso legal · Cookies</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
